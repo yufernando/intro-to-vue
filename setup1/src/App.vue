@@ -1,75 +1,74 @@
 <template>
   <div id="app">
-    <div class="unit" v-for="unit in manifest">
-      <child :item="unit.item" :url="unit.url"></child>
+    <div class="unit" v-for="unit in manifest" :key="unit.item">
+      <app-child :item="unit.item" :url="unit.url"></app-child>
     </div>
   </div>
 </template>
 
 <script>
-import Child from './components/Child.vue';
+import AppChild from "@/components/AppChild.vue";
+
 export default {
-  name: 'app',
   components: {
-    Child
+    AppChild,
   },
   data() {
     return {
       manifest: [
         {
           item: "backpack",
-          url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/backpack.jpg"
+          url:
+            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/backpack.jpg",
         },
         {
           item: "tshirt",
-          url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/tshirt.jpg"
+          url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/tshirt.jpg",
         },
-         {
+        {
           item: "sweatshirt",
-          url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/sweatshirt.jpg"
+          url:
+            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/sweatshirt.jpg",
         },
-      ]
+      ],
     };
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-body, html {
-  font-family: 'PT Serif', serif;
+body,
+html {
+  font-family: "PT Serif", serif;
 }
-
 #app {
   display: flex;
   justify-content: center;
 }
-
 .special {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 12px;
 }
-
-h1, h2, h3, li {
+h1,
+h2,
+h3,
+li {
   @extend .special;
 }
-
 h2 {
   font-size: 20px;
   margin: 0 0 5px;
   text-align: center;
 }
-
 li {
   list-style: none;
   display: inline-block;
 }
-
 input {
   background: #eee;
 }
-
 button {
   border: none;
   border-radius: 1000px;
@@ -94,7 +93,6 @@ button {
     }
   }
 }
-
 .quant-text {
   display: inline-block;
   text-align: center;
@@ -103,7 +101,6 @@ button {
   padding: 8px;
   @extend .special;
 }
-
 .quantity {
   border: 2px solid black;
   width: 235px;
@@ -112,7 +109,6 @@ button {
   background: #fff;
   margin-left: 20px;
 }
-
 .item {
   display: flex;
   flex-direction: column;
